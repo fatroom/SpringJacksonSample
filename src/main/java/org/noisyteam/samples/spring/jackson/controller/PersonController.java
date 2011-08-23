@@ -14,6 +14,8 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
+
 /**
  * Handles requests for the application home page.
  *
@@ -49,6 +51,7 @@ public class PersonController {
     public Person getPersonObject() {
         Person person = new Person();
         person.setName("John Doe");
+        person.setBirthday(new Date());
         return person;
     }
 }
