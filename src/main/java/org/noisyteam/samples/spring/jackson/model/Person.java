@@ -1,5 +1,7 @@
 package org.noisyteam.samples.spring.jackson.model;
 
+import java.util.Date;
+
 /**
  * Sample model class.
  *
@@ -9,6 +11,7 @@ public class Person {
 
     private String name;
     private String nickname;
+    private Date birthday;
 
     public String getName() {
         return name;
@@ -24,5 +27,13 @@ public class Person {
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 }
