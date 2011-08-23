@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Handles requests for the application home page.
@@ -41,5 +42,13 @@ public class PersonController {
         logger.trace("Saving action");
         model.addAttribute("person", person);
         return DEFAULT_VIEW;
+    }
+
+    @RequestMapping(value="/json", method=RequestMethod.GET)
+    @ResponseBody
+    public Person getPersonObject() {
+        Person person = new Person();
+        person.setName("John Doe");
+        return person;
     }
 }
