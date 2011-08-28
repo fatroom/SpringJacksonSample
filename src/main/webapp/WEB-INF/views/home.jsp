@@ -6,27 +6,6 @@
         <title>Home</title>
     </head>
     <body>
-        <h1>Introduce your self!</h1>
-        <form:form modelAttribute="person" method="PUT">
-            <table>
-                <tr>
-                    <td>Name:</td>
-                    <td><form:input path="name" /></td>
-                    <%-- Show errors for name field --%>
-                    <td><form:errors path="name" /></td>
-                </tr>
-                <tr>
-                    <td>Nickname:</td>
-                    <td><form:input path="nickname" /></td>
-                    <%-- Show errors for nickname field --%>
-                    <td><form:errors path="nickname" /></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" value="Save Changes" />
-                    </td>
-                </tr>
-            </table>
-        </form:form>
+        <h1>Hello there!</h1>
     </body>
 </html>

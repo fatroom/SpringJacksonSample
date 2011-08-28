@@ -1,17 +1,11 @@
 package org.noisyteam.samples.spring.jackson.controller;
 
-import javax.validation.Valid;
 import org.noisyteam.samples.spring.jackson.model.Person;
-import org.noisyteam.samples.spring.jackson.validator.PersonValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
@@ -27,28 +21,16 @@ public class PersonController {
 
     private static final String DEFAULT_VIEW = "WEB-INF/views/home.jsp";
 
-    @InitBinder("person")
-    protected void initBinder(WebDataBinder binder) {
-        binder.setValidator(new PersonValidator());
-    }
-
     @RequestMapping(value = "/", method=RequestMethod.GET)
-    public String home(Model model) {
+    public String home() {
         logger.trace("Passing through...");
-        model.addAttribute("person", new Person());
-        return DEFAULT_VIEW;
-    }
-
-    @RequestMapping(value = "/", method=RequestMethod.POST)
-    public String create(@Valid Person person, BindingResult result, Model model) {
-        logger.trace("Saving action");
-        model.addAttribute("person", person);
         return DEFAULT_VIEW;
     }
 
     @RequestMapping(value="/json", method=RequestMethod.GET)
     @ResponseBody
     public Person getPersonObject() {
+        logger.trace("Generating person object for JSON output");
         Person person = new Person();
         person.setName("John Doe");
         person.setBirthday(new Date());
