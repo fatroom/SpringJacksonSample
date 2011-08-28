@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 @Component
 public class CustomObjectMapper extends ObjectMapper {
     public CustomObjectMapper() {
-        DateFormat format = new SimpleDateFormat("yyyy-mm-dd hh:MM");
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         StdSerializerProvider sp = new StdSerializerProvider();
         sp.setNullValueSerializer(new NullSerializer());
         this.setSerializerProvider(sp);
