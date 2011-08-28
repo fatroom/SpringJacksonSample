@@ -9,8 +9,10 @@ import org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAda
 import javax.annotation.PostConstruct;
 
 @Component
-public class JacksonFix {
+public class JacksonConfigurator {
+    @Autowired
     private AnnotationMethodHandlerAdapter annotationMethodHandlerAdapter;
+    @Autowired
     private CustomObjectMapper objectMapper;
 
     @PostConstruct
@@ -22,16 +24,5 @@ public class JacksonFix {
                 m.setObjectMapper(objectMapper);
             }
         }
-    }
-
-    // this will exist due to the <mvc:annotation-driven/> bean
-    @Autowired
-    public void setAnnotationMethodHandlerAdapter(AnnotationMethodHandlerAdapter annotationMethodHandlerAdapter) {
-        this.annotationMethodHandlerAdapter  = annotationMethodHandlerAdapter;
-    }
-
-    @Autowired
-    public void setObjectMapper(CustomObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
     }
 }
